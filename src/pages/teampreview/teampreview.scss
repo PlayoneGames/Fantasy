@@ -1,0 +1,66 @@
+teampreview-page {
+    .header-list{
+        text-align: center;
+        vertical-align: middle;
+    }
+    .header-center{
+        min-height: 35px;
+        align-content: center;
+        align-items: center;
+        background-color: #c51d23;
+    }
+    .header-list > a{
+        color: white;
+    }
+    .lobby-banner{
+        margin: auto;
+        height: 100px;
+        width: 175px;
+    }
+    .list-img-width{
+        height: 50px;
+        width: 50px;
+        margin:auto;
+        display: flex;
+    }
+    .list-content-label{
+        height: 50%;
+        font-size: 1.2rem;
+        align-items: center;
+    }
+    .list-content-timer{
+        height: 50%;
+        font-size: 1.4rem;
+        align-items: center;
+        color: red;
+    }
+    .list-view{
+        // background: linear-gradient(132deg, white 49%, #f4f4f4 49%);
+        // box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+       // margin-top: 5rem;
+    }
+    .margin-list-view{
+        margin-top: 4rem;
+    }
+    .margin-list-view-span{
+        margin: auto;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+    .list-view-player-name{
+        display: block;
+        text-align: center;
+    }
+    .list-view-player-catagory{
+        margin-bottom: 4px;
+        text-align: center;
+        color:#f12626;;
+        text-transform: uppercase;
+        font-size: var(--font-small);
+        opacity: 0.52;
+    }
+    ion-header{
+        background-color: #c51d23;
+    }
+
+}

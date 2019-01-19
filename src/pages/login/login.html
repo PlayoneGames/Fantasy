@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Login & Play</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="form-content">
+  <form class="form" [formGroup]="validations_form"  (ngSubmit)="onSubmit(validations_form.value)">
+    <ion-item>
+      <ion-label floating color="primary">Mobile No.</ion-label>
+      <ion-input type="number" formControlName="phone" minlength = 10 maxlength = 10 required></ion-input>
+    </ion-item>
+    <div text-center>
+      <button ion-button  type="submit" [disabled]="!validations_form.valid">LOGIN</button>
+    </div>
+  </form>
+</ion-content>

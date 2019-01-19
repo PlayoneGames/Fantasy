@@ -1,22 +1,22 @@
 import { Component } from '@angular/core';
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { NavController } from 'ionic-angular';
-import { UserPage } from '../../pages/user/user';
+import { UserPage } from '../user/user';
 
 import { UsernameValidator } from '../../validators/username.validator';
 import { PasswordValidator } from '../../validators/password.validator';
 import { PhoneValidator } from '../../validators/phone.validator';
 
-import { Country } from './form.model';
+import { Country } from './register.model';
 
 import emailMask from 'text-mask-addons/dist/emailMask';
 
 @Component({
   selector: 'page-form',
-  templateUrl: 'form.html'
+  templateUrl: 'register.html'
 })
 
-export class FormPage {
+export class RegisterPage {
 
   validations_form: FormGroup;
   matching_passwords_group: FormGroup;

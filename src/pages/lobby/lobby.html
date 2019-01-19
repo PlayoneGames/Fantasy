@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Fantasy
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-row class="header-center">
+    <ion-col class="header-list" *ngFor="let item of itemsList">
+      <a class = "tab-item">{{item}}</a>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+      <ion-img class="lobby-banner" src="../../assets/imgs/banner.png" width="auto" height="100px" ></ion-img>
+  </ion-row>  
+  <ion-row class="list-view" *ngFor="let item1 of dummyJson">
+    <ion-col>
+        <ion-img class="list-img-width" src= "{{item1.img1}}" width="auto" height="100px" ></ion-img>
+    </ion-col>
+    <ion-col>
+        <ion-row class="list-content-label" justify-content-center>{{item1.label}}</ion-row>
+        <ion-row class="list-content-timer" justify-content-center>{{item1.timeRemaining}}</ion-row>
+    </ion-col>
+    <ion-col>
+        <ion-img class="list-img-width" src="{{item1.img2}}" width="auto" height="100px" ></ion-img>
+    </ion-col>
+  </ion-row>
+</ion-content>
+
+  
+

@@ -7,16 +7,20 @@ import { ValidatorsModule } from '../validators/validators.module';
 
 import { MyApp } from './app.component';
 
-import { FormPage } from '../pages/form/form';
+import { RegisterPage } from '../pages/register/register';
 import { UserPage } from '../pages/user/user';
-import { HomePage } from '../pages/home/home';
+import { LoginPage } from '../pages/login/login';
+import { LobbyPage } from '../pages/lobby/lobby';
+import { TeamPreviewPage } from '../pages/teampreview/teampreview';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
-    FormPage,
-    UserPage
+    LobbyPage,
+    RegisterPage,
+    UserPage,
+    LoginPage,
+    TeamPreviewPage
   ],
   imports: [
     BrowserModule,
@@ -26,9 +30,11 @@ import { HomePage } from '../pages/home/home';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    FormPage,
+    RegisterPage,
     UserPage,
-    HomePage
+    LobbyPage,
+    LoginPage,
+    TeamPreviewPage
   ],
   providers: [
     StatusBar,
