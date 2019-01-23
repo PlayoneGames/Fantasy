@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { LoadingController } from 'ionic-angular';
 import { NavController } from 'ionic-angular';
 import { UserPage } from '../user/user';
+
+import { RestApiService } from '../../services/rest-api.service';
 
 import { UsernameValidator } from '../../validators/username.validator';
 import { PasswordValidator } from '../../validators/password.validator';
@@ -26,9 +29,30 @@ export class RegisterPage {
 
   countries: Array<Country>;
   genders: Array<string>;
+  data1: any;
+  data2: any;
 
-  constructor(public navCtrl: NavController, public formBuilder: FormBuilder) { }
-
+  constructor(public api: RestApiService, public navCtrl: NavController, public formBuilder: FormBuilder,
+    public loadingController: LoadingController) { }
+  
+  ngOnInit() {
+    //this.getData();
+  }
+  async postRequest(formValues, apiName) {
+    const loading = await this.loadingController.create({
+      
+    });
+    await loading.present();
+    this.api.postRequest(formValues, apiName)
+      .subscribe(res => {
+        console.log(res);
+        this.data1 = res[0];
+        loading.dismiss();
+      }, err => {
+        console.log(err);
+        loading.dismiss();
+      });
+  }
   ionViewWillLoad() {
     this.countries = [
       new Country('UY', 'Uruguay'),
@@ -98,7 +122,24 @@ export class RegisterPage {
   };
 
   onSubmit(values){
-    this.navCtrl.push(UserPage);
+   // this.navCtrl.push(UserPage);
+   console.log("validations_form.value",this.validations_form.value);
+   let formValues = {
+        'whiteLabelId': "1",
+        'phone': this.validations_form.value.phone,
+        'email': this.validations_form.value.email,
+        'hpwd': this.validations_form.value.matching_passwords.password,
+        'salt': "test",
+    };
+   let response = this.postRequest(formValues, "signup");
+   console.log("response in controller", response);
+
+   
+  
+  //  .subscribe(data => {
+  //   console.log(data);
+  // });
   }
+
 
 }

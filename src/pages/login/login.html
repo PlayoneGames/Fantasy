@@ -4,14 +4,32 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding class="form-content">
-  <form class="form" [formGroup]="validations_form"  (ngSubmit)="onSubmit(validations_form.value)">
+<ion-content>
+<form class="form" [formGroup]="validations_form"  (ngSubmit)="onSubmit(validations_form.value)">
+<ion-item>
+    <ion-label floating color="primary">Email</ion-label>
+    <ion-input [textMask]="emailMask" type="text" formControlName="email"></ion-input>
+  </ion-item>
+  <div class="validation-errors">
+    <ng-container *ngFor="let validation of validation_messages.email">
+      <div class="error-message" *ngIf="validations_form.get('email').hasError(validation.type) && (validations_form.get('email').dirty || validations_form.get('email').touched)">
+        {{ validation.message }}
+      </div>
+    </ng-container>
+  </div>
+   <div formGroupName="matching_passwords">
     <ion-item>
-      <ion-label floating color="primary">Mobile No.</ion-label>
-      <ion-input type="number" formControlName="phone" minlength = 10 maxlength = 10 required></ion-input>
+      <ion-label floating color="primary">Password</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
     </ion-item>
-    <div text-center>
-      <button ion-button  type="submit" [disabled]="!validations_form.valid">LOGIN</button>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.password">
+        <div class="error-message" *ngIf="validations_form.get('matching_passwords').get('password').hasError(validation.type) && (validations_form.get('matching_passwords').get('password').dirty || validations_form.get('matching_passwords').get('password').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
     </div>
-  </form>
+  </div>
+  <button ion-button full type="submit" [disabled]="!validations_form.valid">LOGIN</button>
+</form>
 </ion-content>
